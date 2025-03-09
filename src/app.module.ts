@@ -3,6 +3,7 @@ import { UserModule } from './api/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { TypeormConfig } from './config/db/typeorm.config';
+import { PostModule } from './api/post/post.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TypeormConfig } from './config/db/typeorm.config';
       useClass: TypeormConfig,
     }),
     UserModule,
+    PostModule,
   ],
   controllers: [],
   providers: [],
