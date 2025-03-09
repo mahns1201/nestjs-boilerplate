@@ -1,17 +1,17 @@
 import { Repository } from 'typeorm';
-import { UserMysqlEntity } from '../entity/user.mysql.entity';
+import { User } from '../entity/user.mysql.entity';
 import { UserRepository } from './user.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 
-export class UserMysqlRepository extends UserRepository<UserMysqlEntity> {
+export class UserMysqlRepository extends UserRepository<User> {
   constructor(
-    @InjectRepository(UserMysqlEntity)
-    private readonly userMysqlRepository: Repository<UserMysqlEntity>,
+    @InjectRepository(User)
+    private readonly userMysqlRepository: Repository<User>,
   ) {
     super();
   }
 
-  async findById(id: number): Promise<UserMysqlEntity | null> {
+  async findById(id: number): Promise<User | null> {
     return this.userMysqlRepository.findOne({
       where: { id },
     });

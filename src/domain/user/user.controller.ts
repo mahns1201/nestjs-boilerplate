@@ -2,6 +2,8 @@ import {
   ClassSerializerInterceptor,
   Controller,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   UseInterceptors,
 } from '@nestjs/common';
@@ -14,6 +16,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get(':id')
+  @HttpCode(HttpStatus.OK)
   @UseInterceptors(ClassSerializerInterceptor)
   getUser(@Param() getUserByIdDto: GetUserByIdDto): Promise<UserResponseDto> {
     return this.userService.getUser(getUserByIdDto);
