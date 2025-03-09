@@ -3,6 +3,7 @@ import { UserModule } from './domain/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as process from 'node:process';
 import { ConfigModule } from '@nestjs/config';
+import { TypeormConfig } from './config/db/typeorm.config';
 
 @Module({
   imports: [
@@ -11,16 +12,7 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: `./.env`,
     }),
     TypeOrmModule.forRootAsync({
-      useFactory: () => ({
-        type: 'mysql',
-        host: process.env.MYSQL_HOST,
-        port: Number(process.env.MYSQL_PORT) || 3306,
-        database: process.env.MYSQL_DATABASE,
-        username: process.env.MYSQL_USERNAME,
-        password: process.env.MYSQL_PASSWORD,
-        autoLoadEntities: true,
-        synchronize: process.env.NODE_ENV !== 'production',
-      }),
+      useClass: TypeormConfig,
     }),
     UserModule,
   ],
