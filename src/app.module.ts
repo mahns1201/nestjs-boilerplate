@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './domain/user/user.module';
+import { UserModule } from './api/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as process from 'node:process';
 import { ConfigModule } from '@nestjs/config';
 import { TypeormConfig } from './config/db/typeorm.config';
 

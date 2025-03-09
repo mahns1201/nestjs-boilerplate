@@ -13,7 +13,7 @@ import { UserService } from './user.service';
 import { GetUserByIdDto } from './dto/request/get-user-by-id.dto';
 import { UserResponseDto } from './dto/response/user-response.dto';
 import { CreateUserDto } from './dto/request/create-user.dto';
-import { User } from './entity/user.mysql.entity';
+import { User } from './user.entity';
 
 @Controller('users')
 export class UserController {

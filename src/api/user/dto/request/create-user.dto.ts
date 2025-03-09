@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { User } from '../../entity/user.mysql.entity';
+import { User } from '../../user.entity';
 
 export class CreateUserDto {
   @IsString()
