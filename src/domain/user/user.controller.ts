@@ -15,7 +15,7 @@ export class UserController {
 
   @Get(':id')
   @UseInterceptors(ClassSerializerInterceptor)
-  getUser(@Param() getUserByIdDto: GetUserByIdDto): UserResponseDto {
+  getUser(@Param() getUserByIdDto: GetUserByIdDto): Promise<UserResponseDto> {
     return this.userService.getUser(getUserByIdDto);
   }
 }
