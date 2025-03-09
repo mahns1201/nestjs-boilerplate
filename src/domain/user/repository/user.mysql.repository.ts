@@ -11,6 +11,10 @@ export class UserMysqlRepository extends UserRepository<User> {
     super();
   }
 
+  async create(user: User): Promise<User> {
+    return this.userMysqlRepository.save(user);
+  }
+
   async findById(id: number): Promise<User | null> {
     return this.userMysqlRepository.findOne({
       where: { id },
